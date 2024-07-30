@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BoardsModule } from './boards/boards.module';
 import { TasksColumnsModule } from './tasks-columns/tasks-columns.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { TasksColumnsModule } from './tasks-columns/tasks-columns.module';
     }),
     BoardsModule,
     TasksColumnsModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
