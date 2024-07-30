@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BoardsModule } from './boards/boards.module';
+import { TasksColumnsModule } from './tasks-columns/tasks-columns.module';
 
 @Module({
   imports: [
@@ -17,12 +18,13 @@ import { BoardsModule } from './boards/boards.module';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DATABASE'),
-        entities: [],
+        autoLoadEntities: true,
         synchronize: true,
       }),
       inject: [ConfigService],
     }),
     BoardsModule,
+    TasksColumnsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
